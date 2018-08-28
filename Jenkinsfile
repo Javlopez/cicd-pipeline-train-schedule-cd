@@ -42,9 +42,9 @@ pipeline {
             when {
                 branch 'master'
             }
-            input 'Does the staging environment looks good?'
-            milestone(1)
             steps {
+                input 'Does the staging environment looks good?'
+                milestone(1)
                 withCredentials([usernamePassword(credentailsId: 'deploy_jenkins', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
                     sshPublisher(
                         failOnError: true,
