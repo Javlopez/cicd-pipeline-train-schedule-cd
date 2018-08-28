@@ -2,7 +2,7 @@
 Description=Jenkins APP build 
 
 [Service]
-ExecStart=/opt/train-schedule/app.js
+ExecStart=/usr/bin/npm start /opt/train-schedule/app.js
 Restart=always
 User=nobody
 # Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
