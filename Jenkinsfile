@@ -29,7 +29,7 @@ pipeline {
                                         sourceFiles: 'dist/trainSchedule.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: 'sudo systemctl list-unit-files | grep enabled | grep train; if [ $? -eq "0" ]; then sudo /usr/bin/systemctl stop train-schedule; fi && sudo rm -rf /opt/train-schedule/* && sudo unzip /tmp/trainSchedule.zip -d /opt/train-schedule && cd /opt/train-schedule && sudo npm start app.js'   
+                                        execCommand: 'sudo systemctl list-unit-files | grep enabled | grep train; if [ $? -eq "0" ]; then sudo /usr/bin/systemctl stop train-schedule; fi && sudo rm -rf /opt/train-schedule/* && sudo unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo cp /opt/train-schedule/train-schedule.service  /etc/systemd/system/train-schedule.service && sudo /usr/bin/systemctl start train-schedule'   
                                     )
                                 ]
                             )
@@ -61,7 +61,7 @@ pipeline {
                                         sourceFiles: 'dist/trainSchedule.zip',
                                         removePrefix: 'dist/',
                                         remoteDirectory: '/tmp',
-                                        execCommand: 'sudo systemctl list-unit-files | grep enabled | grep train; if [ $? -eq "0" ]; then sudo /usr/bin/systemctl stop train-schedule; fi && sudo rm -rf /opt/train-schedule/* && sudo unzip /tmp/trainSchedule.zip -d /opt/train-schedule && cd /opt/train-schedule && sudo npm start app.js'   
+                                        execCommand: 'sudo systemctl list-unit-files | grep enabled | grep train; if [ $? -eq "0" ]; then sudo /usr/bin/systemctl stop train-schedule; fi && sudo rm -rf /opt/train-schedule/* && sudo unzip /tmp/trainSchedule.zip -d /opt/train-schedule && sudo cp /opt/train-schedule/train-schedule.service  /etc/systemd/system/train-schedule.service && sudo /usr/bin/systemctl start train-schedule'   
                                     )
                                 ]
                             )
